@@ -9,4 +9,4 @@ jobs:
 
     steps:
     - name: Find 7z binary
-      run: 7za.exe --version
+      run: 7z.exe --version
