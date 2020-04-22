@@ -1,0 +1,15 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-18.04
+
+    steps:
+    - name: Runner context
+      run: echo ${{ runner.temp }}
+    - name: From context
+      working-directory: ${{ runner.temp }}
+      run: pwd
