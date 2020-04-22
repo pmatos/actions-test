@@ -1,0 +1,22 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-18.04
+
+    steps:
+    - name: Where is home?
+      run: echo $HOME
+    - name: Who am I?
+      run: whoami
+    - name: Initial dir
+      run: pwd
+    - name: Permissions
+      run: ls -la $HOME
+    - name: Touch Home
+      run: |
+        touch $HOME/foo
+        mkdir $HOME/bar
