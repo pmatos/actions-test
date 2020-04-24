@@ -13,3 +13,30 @@ jobs:
     - name: From context
       working-directory: ${{ runner.temp }}
       run: pwd
+
+# This job was shared here 
+# https://github.community/t5/GitHub-Actions/runner-temp-being-emptied-between-jobs/m-p/55433/highlight/true#M9555
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    container: 
+      image: node:latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: check the value of github.workspace and runner.temp
+        run: |
+          echo "github.workspace = ${{ github.workspace }}"
+          echo "GITHUB_WORKSPACE = $GITHUB_WORKSPACE"
+          echo "runner.temp = ${{ runner.temp }}"
+
+      - name: switch working-directory to ${{ runner.temp }}
+        working-directory: ${{ runner.temp }}
+        run: echo "Current working directory -- $PWD"
+
+      - name: upload-artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: my-artifact
+          path: ${{ runner.temp }}
