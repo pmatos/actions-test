@@ -18,6 +18,6 @@ jobs:
       with:
         architecture: 'x64'
         distribution: 'full'
-        variable: ${{ matrix.variant }}
+        variant: ${{ matrix.variant }}
         version: ${{ matrix.racket-version }}
     - run: racket --version
