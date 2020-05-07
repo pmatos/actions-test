@@ -1,4 +1,4 @@
-name: Setup collections-lib
+name: add-path test
 
 on: [push]
 
@@ -9,9 +9,9 @@ jobs:
     
     steps:
     - run: |
-      mkdir -p /foo/bin
-      echo '#! /bin/sh' > /foo/bin/run
-      echo 'echo "Hello World"' >> /foo/bin/run
-      chmod +x /foo/bin/run
+        mkdir -p /foo/bin
+        echo '#! /bin/sh' > /foo/bin/run
+        echo 'echo "Hello World"' >> /foo/bin/run
+        chmod +x /foo/bin/run
     - run: echo "::add-path::/foo/bin"
     - run: run
