@@ -1,0 +1,17 @@
+name: Setup collections-lib
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-18.04
+    container: debian:buster-slim
+    
+    steps:
+    - run: |
+      mkdir -p /foo/bin
+      echo '#! /bin/sh' > /foo/bin/run
+      echo 'echo "Hello World"' >> /foo/bin/run
+      chmod +x /foo/bin/run
+    - run: echo "::add-path::/foo/bin"
+    - run: run
