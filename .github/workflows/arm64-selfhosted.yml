@@ -1,0 +1,21 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: [self-hosted, linux, arm64]
+
+    steps:
+    - name: echo
+      run: echo "Hello World"
+      
+  build-container:
+
+    runs-on: [self-hosted, linux, arm64]
+    container: ubuntu:stable
+    
+    steps:
+    - name: echo
+      run: echo "Hello World from Ubuntu"
