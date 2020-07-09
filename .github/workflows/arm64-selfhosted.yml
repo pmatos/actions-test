@@ -1,4 +1,4 @@
-name: CI
+name: ARM64 self-hosted Test
 
 on: [push]
 
