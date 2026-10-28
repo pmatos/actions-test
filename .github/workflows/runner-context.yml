@@ -18,7 +18,7 @@ jobs:
 # https://github.community/t5/GitHub-Actions/runner-temp-being-emptied-between-jobs/m-p/55433/highlight/true#M9555
   test:
     name: Test
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     container: 
       image: node:latest
     steps:
